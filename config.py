@@ -1,0 +1,5 @@
+config = {
+    'mqtt':{
+        'base':'pins'
+    }
+}

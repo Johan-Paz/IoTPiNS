@@ -1,0 +1,17 @@
+use iotpins;
+
+db.device.drop();
+db.device.createIndex({"id":1});
+db.device.insert({"id":"K0S4"});
+
+db.measure.drop();
+db.measure.createIndex({"device":1,"key":1,"time":1});
+db.measure.insert({"device":"K0S4","key":"m","value":45,"time":new Date()});
+
+db.aggregate.drop();
+db.aggregate.createIndex({"device":1,"key":1,"period":1,"start":1});
+db.aggregate.insert({"device":"K0S4","key":"m","max":45,"min":46,"sum":91,"num":2,"period":0,"start":new Date()});
+
+db.raw.drop();
+db.raw.createIndex({"device":1,"time":1});
+db.raw.insert({"device":"K0S4","m":45,"time":new Date()});
